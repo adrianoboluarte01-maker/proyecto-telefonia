@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard - Compañía Telefónica</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="nav-contenedor">
+            <div class="logo">COMPAÑIA <span>TELEFÓNICA</span></div>
+            <nav>
+                <ul>
+                    <li class="activo"><a href="{{ url_for('inicio') }}">Inicio</a></li>
+                    <li><a href="{{ url_for('servicios') }}">Servicios</a></li>
+                    <li><a href="{{ url_for('facturas') }}">Facturas</a></li>
+                    <li><a href="{{ url_for('logout') }}" class="btn-logout">Salir</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="contenedor-principal dashboard">
+        <div class="bienvenida-header">
+            <h1>Hola, {{ current_user.id }} 👋</h1>
+            <p>Este es el resumen de tu cuenta al día de hoy.</p>
+        </div>
+
+        <div class="grid-dashboard">
+            <div class="card">
+                <i class="fa-solid fa-signal icon-card"></i>
+                <h3>Consumo de Datos</h3>
+                <div class="progreso-bar"><div class="progreso" style="width: 75%;"></div></div>
+                <p>7.5 GB / 10 GB</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-money-bill-1-wave icon-card"></i>
+                <h3>Saldo Actual</h3>
+                <h2 class="precio">S/ 45.90</h2>
+                <p>Próximo vencimiento: 15 de Oct</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-mobile-screen icon-card"></i>
+                <h3>Tu Plan</h3>
+                <p class="plan-nombre">Plan Ilimitado Pro</p>
+                <button class="btn-secundario">Mejorar Plan</button>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
